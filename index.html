@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Engineering Timetable</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="campus-logo.png" alt="Campus Logo" id="campus-logo">
+                    <div class="title-container">
+                        <h1>Engineering Campus</h1>
+                        <p class="subtitle">First Year Timetable</p>
+                    </div>
+                </div>
+                <div class="current-info">
+                    <div class="date-badge">
+                        <i class="fas fa-calendar-day"></i>
+                        <span id="current-day-display">Today is Monday, 09:30</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="department-section">
+                <h2 class="section-title">Select Department</h2>
+                <div class="department-tabs">
+                    <button class="dept-tab active" data-department="mechanical">
+                        <i class="fas fa-cogs"></i>
+                        <span>Mechanical</span>
+                    </button>
+                    <button class="dept-tab" data-department="civil">
+                        <i class="fas fa-hard-hat"></i>
+                        <span>Civil</span>
+                    </button>
+                    <button class="dept-tab" data-department="electrical">
+                        <i class="fas fa-bolt"></i>
+                        <span>Electrical</span>
+                    </button>
+                    <button class="dept-tab" data-department="qs">
+                        <i class="fas fa-calculator"></i>
+                        <span>QS</span>
+                    </button>
+                    <button class="dept-tab" data-department="bse">
+                        <i class="fas fa-building"></i>
+                        <span>BSE</span>
+                    </button>
+                </div>
+            </section>
+
+            <div id="weekend-notice" class="notice-card hidden">
+                <div class="notice-icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="notice-content">
+                    <h3>Weekend Notice</h3>
+                    <p id="weekend-message">There are no classes scheduled for this day.</p>
+                </div>
+            </div>
+
+            <section class="weekday-section">
+                <h2 class="section-title">Select Day</h2>
+                <div class="weekday-tabs">
+                    <button class="day-tab" data-day="0">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Sunday</span>
+                    </button>
+                    <button class="day-tab active" data-day="1">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Monday</span>
+                    </button>
+                    <button class="day-tab" data-day="2">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Tuesday</span>
+                    </button>
+                    <button class="day-tab" data-day="3">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Wednesday</span>
+                    </button>
+                    <button class="day-tab" data-day="4">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Thursday</span>
+                    </button>
+                    <button class="day-tab" data-day="5">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Friday</span>
+                    </button>
+                    <button class="day-tab" data-day="6">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Saturday</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="schedule-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-calendar-day"></i>
+                            <span id="schedule-title">Today's Schedule</span>
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-container">
+                            <table id="schedule-table" class="timetable">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Subject</th>
+                                        <th>Lecturer</th>
+                                        <th>Room</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Schedule will be inserted here by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <p>&copy; 2025 Engineering Campus. Developed By Bimsara Liyanagama 34th Batch.</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Contact Us</a>
+                    <a href="#" class="footer-link">Help</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
