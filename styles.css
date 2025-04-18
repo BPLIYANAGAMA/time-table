@@ -320,12 +320,24 @@ h1 {
 .table-container {
   overflow-x: auto;
   border-radius: var(--radius-sm);
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: thin; /* Firefox */
+}
+
+.table-container::-webkit-scrollbar {
+  height: 6px; /* For horizontal scrollbars */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-light);
+  border-radius: 6px;
 }
 
 .timetable {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
+  table-layout: fixed; /* This helps with equal column widths */
 }
 
 .timetable th,
@@ -333,6 +345,29 @@ h1 {
   padding: 0.75rem 1rem;
   text-align: left;
   border: 1px solid var(--border-color);
+  word-wrap: break-word; /* Allow text to wrap */
+  overflow-wrap: break-word;
+}
+
+/* Define column widths */
+.timetable th:nth-child(1), 
+.timetable td:nth-child(1) {
+  width: 22%; /* Time column */
+}
+
+.timetable th:nth-child(2), 
+.timetable td:nth-child(2) {
+  width: 35%; /* Subject column */
+}
+
+.timetable th:nth-child(3), 
+.timetable td:nth-child(3) {
+  width: 25%; /* Lecturer column */
+}
+
+.timetable th:nth-child(4), 
+.timetable td:nth-child(4) {
+  width: 18%; /* Room column */
 }
 
 .timetable th {
@@ -473,8 +508,29 @@ h1 {
 
   .timetable th,
   .timetable td {
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 0.5rem; /* Reduced padding */
     font-size: 0.85rem;
+  }
+
+  /* Adjust column widths for mobile */
+  .timetable th:nth-child(1), 
+  .timetable td:nth-child(1) {
+    width: 20%; /* Time column */
+  }
+
+  .timetable th:nth-child(2), 
+  .timetable td:nth-child(2) {
+    width: 32%; /* Subject column */
+  }
+
+  .timetable th:nth-child(3), 
+  .timetable td:nth-child(3) {
+    width: 24%; /* Lecturer column */
+  }
+
+  .timetable th:nth-child(4), 
+  .timetable td:nth-child(4) {
+    width: 24%; /* Room column - increased for mobile */
   }
 
   .subject {
@@ -487,6 +543,15 @@ h1 {
 
   .room {
     font-size: 0.7rem;
+  }
+  
+  .card-content {
+    padding: 1rem; /* Reduce padding on mobile */
+  }
+  
+  .table-container {
+    margin: 0 -0.5rem; /* Negative margin to extend table */
+    width: calc(100% + 1rem);
   }
 }
 
@@ -514,6 +579,46 @@ h1 {
   .footer-links {
     flex-direction: column;
     gap: 0.5rem;
+  }
+  
+  /* Even more compact table for very small screens */
+  .timetable th,
+  .timetable td {
+    padding: 0.4rem 0.3rem;
+    font-size: 0.75rem;
+  }
+
+  /* Adjust column widths for very small screens */
+  .timetable th:nth-child(1), 
+  .timetable td:nth-child(1) {
+    width: 20%; /* Time column */
+  }
+
+  .timetable th:nth-child(2), 
+  .timetable td:nth-child(2) {
+    width: 30%; /* Subject column */
+  }
+
+  .timetable th:nth-child(3), 
+  .timetable td:nth-child(3) {
+    width: 25%; /* Lecturer column */
+  }
+
+  .timetable th:nth-child(4), 
+  .timetable td:nth-child(4) {
+    width: 25%; /* Room column - increased for mobile */
+  }
+  
+  /* For extreme small screens <360px */
+  @media (max-width: 359px) {
+    .timetable {
+      font-size: 0.7rem;
+    }
+    
+    .timetable th,
+    .timetable td {
+      padding: 0.3rem 0.2rem;
+    }
   }
 }
 
